@@ -356,6 +356,7 @@ void advertising_push_data(uint16_t major_value, uint16_t minor_value, uint16_t 
         memset(spi_message_rx, 0, SPI_PACKET_LEN);
         //Reset spi transfer done
         spis_xfer_done = false;
+        APP_ERROR_CHECK(nrf_drv_spis_buffers_set(&spis, spi_message_tx, SPI_PACKET_LEN, spi_message_rx, SPI_PACKET_LEN));
     }
     else
     {
